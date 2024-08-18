@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/head :: head"></div>
+    <title>Pacientes hospitalizados</title>
+</head>
+<body  class="bg-info p-2 text-dark bg-opacity-25 d-flex flex-column min-vh-100">
+    <div th:replace="fragments/header :: header"></div>
+        <section class="container mt-60">
+        <h1>Listado de pacientes hospitalizados</h1>
+
+            <table th:border="3" class="mt-60 table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Diagnóstico</th>
+                    <th>Fecha hospitalizacion</th>
+                    <th>Habitacion</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="paciente : ${pacientes}">
+                    <td><strong th:text="${paciente.id}"></strong></td>
+                    <td th:text="${paciente.nombre}"></td>
+                    <td th:text="${paciente.apellido}"></td>
+                    <td th:text="${paciente.diagnostico}"></td>
+                    <td th:text="${paciente.diagnostico}"></td>
+                    <td th:text="${paciente.habitacion}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+
+    <!-- Pie de página -->
+    <div  class="mt-auto">
+        <th:block th:replace="fragments/footer :: footer"></th:block>
+    </div>
+
+</body>
+</html>
